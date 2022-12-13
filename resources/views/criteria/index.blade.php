@@ -23,18 +23,28 @@ Kriteria
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
+                                            <td>C01</td>
+                                            <td>Administrasi</td>
                                         </tr>
                                         <tr>
-                                            <td>2</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
+                                            <td>1</td>
+                                            <td>C01</td>
+                                            <td>Pengetahuan</td>
                                         </tr>
                                         <tr>
-                                            <td>3</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
+                                            <td>1</td>
+                                            <td>C01</td>
+                                            <td>Psikotest</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>C01</td>
+                                            <td>Interview</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>C01</td>
+                                            <td>Portofolio</td>
                                         </tr>
                                     </tbody>
                                 </table>
