@@ -9,7 +9,7 @@ Alternatif
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex justify-content-between align-items-center">
                             <h6 class="m-0 font-weight-bold text-primary">Data Alternatif</h6>
-                            <a href="/alternatif/create" class="btn btn-success btn-icon-split">
+                            <a href="{{ route('alternatif.create') }}" class="btn btn-success btn-icon-split">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-plus"></i>
                                 </span>

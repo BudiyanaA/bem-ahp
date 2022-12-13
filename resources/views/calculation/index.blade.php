@@ -21,16 +21,20 @@ Perhitungan
                                             <th>Psikotest</th>
                                             <th>Interview</th>
                                             <th>Portofolio</th>
+                                            <th>Total</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td><b>Pendaftar A</b></td>
-                                            <td>Berkas Kurang 2</td>
-                                            <td>78</td>
-                                            <td>80</td>
-                                            <td>75</td>
-                                            <td>Sesuai dan Jumlah 2</td>
+                                            <td>0.27</td>
+                                            <td>0.25</td>
+                                            <td>0.52</td>
+                                            <td>0.27</td>
+                                            <td>0.59</td>
+                                            <td>1.90</td>
+                                            <td>Tidak Lulus</td>
                                         </tr>
                                     </tbody>
                                 </table>
