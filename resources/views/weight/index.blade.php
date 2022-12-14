@@ -31,15 +31,17 @@ Nilai Bobot
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($weights as $weight)
                                         <tr>
-                                            <td>1</td>
-                                            <td>Pendaftar A</td>
-                                            <td>Berkas Kurang 2</td>
-                                            <td>78</td>
-                                            <td>80</td>
-                                            <td>75</td>
-                                            <td>Sesuai dan Jumlah 2</td>
+                                            <td>{{ $loop->index + 1 }}</td>
+                                            <td>{{ $weight->alternative?->name }}</td>
+                                            <td>{{ $weight->administration?->name }}</td>
+                                            <td>{{ $weight->knowledge }}</td>
+                                            <td>{{ $weight->psikotest }}</td>
+                                            <td>{{ $weight->interview }}</td>
+                                            <td>{{ $weight->portfolio?->name }}</td>
                                         </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

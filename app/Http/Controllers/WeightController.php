@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Alternative;
+use App\Models\Administration;
+use App\Models\Portfolio;
+use App\Models\Weight;
 
 class WeightController extends Controller
 {
@@ -13,7 +17,8 @@ class WeightController extends Controller
      */
     public function index()
     {
-        return view('weight.index');
+        $data['weights'] = Weight::with(['alternative', 'administration', 'portfolio'])->get();
+        return view('weight.index', $data);
     }
 
     /**
@@ -23,7 +28,10 @@ class WeightController extends Controller
      */
     public function create()
     {
-        return view('weight.create');
+        $data['alternatives'] = Alternative::get()->pluck('name', 'id');
+        $data['administrations'] = Administration::get()->pluck('name', 'id');
+        $data['portfolios'] = Portfolio::get()->pluck('name', 'id');
+        return view('weight.create', $data);
     }
 
     /**
@@ -34,7 +42,32 @@ class WeightController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'alternative_id' => 'required|exists:alternatives,id',
+            'administration_id' => 'required|exists:administrations,id',
+            'portfolio_id' => 'required|exists:portfolios,id',
+            'knowledge' => 'required',
+            'psikotest' => 'required',
+            'interview' => 'required',
+        ]);
+
+        try {
+
+            Weight::create([
+                'alternative_id' => $request->alternative_id,
+                'administration_id' => $request->administration_id,
+                'portfolio_id' => $request->portfolio_id,
+                'knowledge' => $request->knowledge,
+                'psikotest' => $request->psikotest,
+                'interview' => $request->interview,
+            ]);
+    
+            return redirect(route('bobot.index'))
+                ->withSuccess("Data berhasil ditambahkan");
+                
+        } catch(\Exception $e) {
+            return redirect()->back()->withError('Data gagal ditambahkan');
+        }
     }
 
     /**

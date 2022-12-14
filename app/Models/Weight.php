@@ -17,4 +17,19 @@ class Weight extends Model
         'psikotest',
         'interview',
     ];
+
+    public function alternative()
+    {
+        return $this->belongsTo(Alternative::class);
+    }
+
+    public function administration()
+    {
+        return $this->belongsTo(Administration::class);
+    }
+
+    public function portfolio()
+    {
+        return $this->belongsTo(Portfolio::class);
+    }
 }
