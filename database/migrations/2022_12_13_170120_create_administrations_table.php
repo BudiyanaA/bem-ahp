@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('administrations', function (Blueprint $table) {
             $table->id();
+            $table->string('code')->unique();
+            $table->string('name');
             $table->timestamps();
         });
     }

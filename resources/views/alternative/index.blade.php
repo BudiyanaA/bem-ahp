@@ -27,21 +27,13 @@ Alternatif
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($alternatives as $alt)
                                         <tr>
-                                            <td>1</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
+                                            <td>{{ $loop->index + 1}}</td>
+                                            <td>{{ $alt->code }}</td>
+                                            <td>{{ $alt->name }}</td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

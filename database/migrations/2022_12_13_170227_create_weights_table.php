@@ -15,7 +15,17 @@ return new class extends Migration
     {
         Schema::create('weights', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('alternative_id');
+            $table->unsignedBigInteger('administration_id');
+            $table->unsignedBigInteger('portfolio_id');
+            $table->integer('knowledge');
+            $table->integer('psikotest');
+            $table->integer('interview');
             $table->timestamps();
+
+            $table->foreign('alternative_id')->references('id')->on('alternatives');
+            $table->foreign('administration_id')->references('id')->on('administrations');
+            $table->foreign('portfolio_id')->references('id')->on('portfolios');
         });
     }
 

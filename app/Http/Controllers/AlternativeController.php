@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Alternative;
 
 class AlternativeController extends Controller
 {
@@ -13,7 +14,8 @@ class AlternativeController extends Controller
      */
     public function index()
     {
-        return view('alternative.index');
+        $data['alternatives'] = Alternative::all();
+        return view('alternative.index', $data);
     }
 
     /**
@@ -34,7 +36,24 @@ class AlternativeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'code' => 'required|unique:alternatives,code|max:255',
+            'name' => 'required',
+        ]);
+
+        try {
+
+            Alternative::create([
+                'code' => $request->code,
+                'name' => $request->name,
+            ]);
+    
+            return redirect(route('alternatif.index'))
+                ->withSuccess("Data berhasil ditambahkan");
+                
+        } catch(\Exception $e) {
+            return redirect()->back()->withError('Data gagal ditambahkan');
+        }
     }
 
     /**
