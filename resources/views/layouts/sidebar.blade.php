@@ -10,32 +10,32 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item <?php if($_SERVER['REQUEST_URI'] == '/') {echo 'active';} ?>">
-                <a class="nav-link" href="/">
+            <li class="nav-item {{  (request()->segment(1) == '/') ? 'active' : ''  }}">
+                <a class="nav-link" href="{{ route('home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Home</span></a>
             </li>
 
-            <li class="nav-item <?php if($_SERVER['REQUEST_URI'] == '/alternatif') {echo 'active';} ?>">
-                <a class="nav-link" href="/alternatif">
+            <li class="nav-item {{  (request()->segment(1) == 'alternatif') ? 'active' : ''  }}">
+                <a class="nav-link" href="{{ route('alternatif.index') }}">
                     <i class="fas fa-fw fa-trophy"></i>
                     <span>Alternatif</span></a>
             </li>
 
-            <li class="nav-item <?php if($_SERVER['REQUEST_URI'] == '/kriteria') {echo 'active';} ?>">
-                <a class="nav-link" href="/kriteria">
+            <li class="nav-item {{  (request()->segment(1) == 'kriteria') ? 'active' : ''  }}">
+                <a class="nav-link" href="{{ route('kriteria.index') }}">
                     <i class="fas fa-fw fa-tasks"></i>
                     <span>Kriteria</span></a>
             </li>
 
-            <li class="nav-item <?php if($_SERVER['REQUEST_URI'] == '/bobot') {echo 'active';} ?>">
-                <a class="nav-link" href="/bobot">
+            <li class="nav-item {{  (request()->segment(1) == 'bobot') ? 'active' : ''  }}">
+                <a class="nav-link" href="{{ route('bobot.index') }}">
                     <i class="fas fa-fw fa-percentage"></i>
                     <span>Nilai Bobot</span></a>
             </li>
 
-            <li class="nav-item <?php if($_SERVER['REQUEST_URI'] == '/perhitungan') {echo 'active';} ?>">
-                <a class="nav-link" href="/perhitungan">
+            <li class="nav-item {{  (request()->segment(1) == 'perhitungan') ? 'active' : ''  }}">
+                <a class="nav-link" href="{{ route('perhitungan.index') }}">
                     <i class="fas fa-fw fa-calculator"></i>
                     <span>Perhitungan</span></a>
             </li>

@@ -26,16 +26,18 @@ Perhitungan
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><b>Pendaftar A</b></td>
-                                            <td>0.27</td>
-                                            <td>0.25</td>
-                                            <td>0.52</td>
-                                            <td>0.27</td>
-                                            <td>0.59</td>
-                                            <td>1.90</td>
-                                            <td>Tidak Lulus</td>
-                                        </tr>
+                                        @foreach($calculations as $calculation)
+                                            <tr>
+                                                <td>{{ $calculation["alternative"] }}</td>
+                                                <td>{{ $calculation["administration"] }}</td>
+                                                <td>{{ $calculation["knowledge"] }}</td>
+                                                <td>{{ $calculation["psikotest"] }}</td>
+                                                <td>{{ $calculation["interview"] }}</td>
+                                                <td>{{ $calculation["portfolio"] }}</td>
+                                                <td>{{ $calculation["total"] }}</td>
+                                                <td>{{ $calculation["result"] }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
