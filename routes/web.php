@@ -26,12 +26,14 @@ use App\Http\Controllers\WeightController;
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('login', [AuthController::class, 'login'])->name('login');  
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('password/change', [AuthController::class, 'changePasswordPage'])->name('password.change');
-Route::post('password/change', [AuthController::class, 'changePasswordAction'])->name('password.change');
-Route::post('login', [AuthController::class, 'login'])->name('login');  
-Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::resource('alternatif', AlternativeController::class);
-Route::resource('perhitungan', CalculationController::class);
-Route::resource('kriteria', CriteriaController::class);
-Route::resource('bobot', WeightController::class);
+Route::group(['middleware' => 'auth'], function () {
+  Route::get('/', [HomeController::class, 'index'])->name('home');
+  Route::resource('alternatif', AlternativeController::class);
+  Route::resource('perhitungan', CalculationController::class);
+  Route::resource('kriteria', CriteriaController::class);
+  Route::resource('bobot', WeightController::class);
+
+  Route::get('password/change', [AuthController::class, 'changePasswordPage'])->name('password.change');
+  Route::post('password/change', [AuthController::class, 'changePasswordAction'])->name('password.change');
+});
