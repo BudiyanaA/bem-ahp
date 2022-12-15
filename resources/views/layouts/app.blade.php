@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>BEM AHP</title>
+    <title>Rekrutmen BEM UPI Cibiru</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ url('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -21,6 +21,8 @@
 
     <!-- Custom styles for this page -->
     <link href="{{ url('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
+    <link rel="icon" href="{{ url('img/favicon.ico') }}" type="image/x-icon"/>
 </head>
 
 <body id="page-top">

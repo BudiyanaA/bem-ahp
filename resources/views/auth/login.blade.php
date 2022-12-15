@@ -1,97 +1,144 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #DBDFFD;
+        }
 
-    <title>BEM AHP</title>
+        footer {
+            background-color: #242F9B;
+            color: #DBDFFD;
+            font-size: 13px;
+        }
 
-    <!-- Custom fonts for this template-->
-    <link href="{{ url('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+        .opensans-medium {
+            font-family: OpenSans-Medium;
+            font-size: 17px;
+        }
 
-    <!-- Custom styles for this template-->
-    <link href="{{ url('css/sb-admin-2.min.css') }}" rel="stylesheet">
+        .opensans-semibold {
+            font-family: OpenSans-SemiBold;
+        }
 
-    <!-- Custom styles for this page -->
-    <link href="{{ url('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+        .opensans-bold {
+            font-family: OpenSans-Bold;
+        }
+
+        .opensans-extrabold {
+            font-family: OpenSans-ExtraBold;
+            font-size: 25px;
+            color: #242F9B;
+        }
+
+        .color-navbar {
+            color: #242F9B;
+        }
+
+        .pedia {
+            left: 170px;
+        }
+    </style>
+
+  <link rel="icon" href="{{ url('img/favicon.ico') }}" type="image/x-icon"/>
+  <title>Rekrutmen BEM UPI Cibiru</title>
 </head>
 
-<body class="bg-gradient-primary">
+<body>
 
-    <div class="container">
-
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
-
-            <div class="col-xl-4 col-lg-4 col-md-4">
-
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Login</h1>
-                                    </div>
-                                    <form class="user" method="POST" action="{{ route('login') }}">
-                                        @csrf
-                                        <div class="form-group">
-                                            <input type="email" name="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Username">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" name="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+    <div class="container mt-3 pt-5 pb-1">
+        <div class="row">
+            <div class="col-6 col-md-3 col-lg-3">
+                <img src="{{ url('img/upi.png') }}" alt="Logo" width="82" height="82" class="float-start">
             </div>
-
+            <div class="col-6 col-md-3 col-lg-3 order-md-1">
+              <img src="{{ url('img/logo.png') }}" alt="Logo" width="82" height="82" class="float-end">
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 mt-3 mt-md-0">
+                <div class="opensans-extrabold text-center">SISTEM INFORMASI</div>
+                <div class="opensans-medium text-center">
+                  REKRUTMEN PENGURUS BADAN EKSEKUTIF MAHASISWA
+                  <br>
+                  UNIVERSITAS PENDIDIKAN INDONESIA KAMPUS DAERAH DI CIBIRU
+                </div>
+            </div>
         </div>
-
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{ url('vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ url('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<style>
+    .montserrat-semibold {
+        font-family: Montserrat-SemiBold;
+        font-size: 18px;
+        color: #000000;
+    }
 
-    <!-- Core plugin JavaScript-->
-    <script src="{{ url('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    .montserrat-regular {
+        font-family: Montserrat;
+        font-size: 15px;
+        text-align: left;
+    }
 
-    <!-- Custom scripts for all pages-->
-    <script src="{{ url('js/sb-admin-2.min.js') }}"></script>
+    .label {
+        font-family: Montserrat-Bold;
+        font-size: 16px;
+        color: #000000;
+        text-align: left;
+    }
 
-    <!-- Page level plugins -->
-    <script src="v{{ url('endor/chart.js/Chart.min.js') }}"></script>
+    .btn-submit {
+        background-color: #242F9B;
+        font-family: Montserrat-SemiBold;
+        font-size: 16px;
+        color: #FFFFFF;
+    }
 
-    <!-- Page level custom scripts -->
-    <script src="{{ url('js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ url('js/demo/chart-pie-demo.js') }}"></script>
+    .border-style {
+        border-color: #242F9B;
+        border-width: 2px;
+    }
+</style>
 
-    <!-- Page level plugins -->
-    <script src="{{ url('vendor/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ url('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+<div class="container">
+    <div class="card mt-3 pt-5 pb-5">
+        <div class="card-body text-center pt-1 pb-5">
+                        <div>Masukkan Email dan Password</div>
 
-    <!-- Page level custom scripts -->
-    <script src="{{ url('js/demo/datatables-demo.js') }}"></script>
+            <br>
+          <form class="user" method="POST" action="{{ route('login') }}">
+            @csrf
+            <div class="col-12 col-md-9 col-lg-6 mt-1 mx-auto label">
+                <label for="nim" class="form-label">Email:</label>
+                <input type="email" class="form-control border-style" id="email" name="email" value="" required autofocus autocomplete="off">
+                <div class="valid-feedback"></div>
+            </div>
 
+            <div class="col-12 col-md-9 col-lg-6 mt-3 mx-auto label">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" class="form-control border-style" id="password" name="password" value="" required autocomplete="off">
+                <div class="valid-feedback"></div>
+            </div>
+
+            <br>
+            <div class="d-grid gap-2 col-6 mt-4 mx-auto">
+                <button class="btn btn-primary btn-submit" type="submit">Masuk</button>
+            </div>
+        </div>
+        </form>        <div class="d-grid gap-2 col-12 col-md-9 col-lg-6 mt-2 mx-auto">
+        </div>
+    </div>
+</div>
+
+@include('layouts.footer')
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 
 </html>

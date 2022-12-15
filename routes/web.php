@@ -36,4 +36,5 @@ Route::group(['middleware' => 'auth'], function () {
 
   Route::get('password/change', [AuthController::class, 'changePasswordPage'])->name('password.change');
   Route::post('password/change', [AuthController::class, 'changePasswordAction'])->name('password.change');
+  Route::get('profile', [AuthController::class, 'profile'])->name('profile');
 });

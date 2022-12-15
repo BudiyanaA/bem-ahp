@@ -27,22 +27,22 @@ Kriteria
                                             <td>Administrasi</td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
+                                            <td>2</td>
                                             <td>C01</td>
                                             <td>Pengetahuan</td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
+                                            <td>3</td>
                                             <td>C01</td>
                                             <td>Psikotest</td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
+                                            <td>4</td>
                                             <td>C01</td>
                                             <td>Interview</td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
+                                            <td>5</td>
                                             <td>C01</td>
                                             <td>Portofolio</td>
                                         </tr>

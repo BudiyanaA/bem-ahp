@@ -19,6 +19,14 @@ class UserSeeder extends Seeder
             'email' => "admin@upi.edu",
             'name' => "Admin BEM",
             'password' => bcrypt("123456"),
+            'role' => 'ADMIN',
+        ]);
+
+        DB::table('users')->insert([
+            'email' => "user@upi.edu",
+            'name' => "User Mahasiswa",
+            'password' => bcrypt("123456"),
+            'role' => 'USER',
         ]);
     }
 }
