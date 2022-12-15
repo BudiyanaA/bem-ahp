@@ -28,6 +28,7 @@ Nilai Bobot
                                             <th>Psikotest</th>
                                             <th>Interview</th>
                                             <th>Portofolio</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -40,6 +41,14 @@ Nilai Bobot
                                             <td>{{ $weight->psikotest }}</td>
                                             <td>{{ $weight->interview }}</td>
                                             <td>{{ $weight->portfolio?->name }}</td>
+                                            <td>
+                                                <a href="{{ route('bobot.edit', $weight->id) }}" class="btn btn-success btn-circle">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <button onclick="deleteItem('{{ $weight->id }}')" class="btn btn-danger btn-circle">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -47,4 +56,57 @@ Nilai Bobot
                             </div>
                         </div>
                     </div>
+@endsection
+
+@section('script')
+<script>
+function deleteItem(id) {
+    Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			type: 'warning',
+            confirmButtonText: 'Yes, delete it!',
+            showCancelButton: true,
+		}).then((result) => {
+			var url = '{{ route("bobot.destroy", ":id") }}';
+    	url = url.replace(':id', id);
+
+			if (result.isConfirmed) {
+				$.ajax({
+				url: url,
+				method: 'delete',
+				cache: false,
+				data: {
+					"_token": "{{ csrf_token() }}",
+				},
+				success: function(data){
+          if (data === 'success') {
+				Swal.fire({
+					title: 'Deleted!',
+					text: 'Your file has been deleted.',
+					type: 'success',
+				});
+            location.reload();
+          } else {
+			Swal.fire({
+				title: 'Oops...',
+				text: 'Ada yang salah!',
+				type: 'error',
+			});
+          }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+			Swal.fire({
+				title: 'Oops...',
+				text: 'Ada yang salah!',
+				type: 'error',
+			});
+        }
+      });
+		} else {
+			Swal.close();
+		}
+	});
+  }
+</script>
 @endsection

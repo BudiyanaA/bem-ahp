@@ -75,7 +75,8 @@ class AlternativeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['alternative'] = Alternative::find($id);
+        return view('alternative.edit', $data);
     }
 
     /**
@@ -87,7 +88,25 @@ class AlternativeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'code' => 'required|max:255|unique:alternatives,code,' . $id,
+            'name' => 'required',
+        ]);
+
+        try {
+
+            $alternative = Alternative::find($id);
+            $alternative->update([
+                'code' => $request->code,
+                'name' => $request->name,
+            ]);
+    
+            return redirect(route('alternatif.index'))
+                ->withSuccess("Data berhasil diubah");
+                
+        } catch(\Exception $e) {
+            return redirect()->back()->withError('Data gagal diubah');
+        }
     }
 
     /**
@@ -98,6 +117,13 @@ class AlternativeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $alternative = Alternative::find($id);
+            $alternative->delete();
+            return 'success';
+
+        } catch (\Exception $e) {
+            return 'failed';
+        }
     }
 }
