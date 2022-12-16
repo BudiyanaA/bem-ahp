@@ -50,11 +50,13 @@ class SelectionController extends Controller
     {
         $alt = Alternative::where('user_id', Auth::id())->first();
 
-        $weight = Weight::with(['alternative', 'administration', 'portfolio'])
-            ->where('alternative_id', $alt->id)
-            ->first();
+        if ($alt) {
+            $weight = Weight::with(['alternative', 'administration', 'portfolio'])
+                ->where('alternative_id', $alt->id)
+                ->first();
+        }
 
-        if ($weight) {
+        if ($alt && isset($weight)) {
             $adm = $this->getAdministration($weight->administration?->code);
             $knw = $this->getKnowledge($weight->knowledge);
             $psi = $this->getPsikotest($weight->psikotest);

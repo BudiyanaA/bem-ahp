@@ -16,7 +16,8 @@ Beranda
     </div>
     <div class="card-body">
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent leo purus, elementum at sem ut, porttitor congue libero. Praesent elit odio, imperdiet vitae tempor sit amet, aliquet euismod augue. Proin luctus ante quis nunc laoreet ultricies. Praesent vel ante a neque semper elementum commodo et diam. Pellentesque blandit suscipit efficitur. Praesent quis tincidunt diam. Phasellus ligula purus, ultrices non dolor sit amet, pharetra tincidunt diam. Proin sed consectetur elit, quis cursus velit. Sed tristique ipsum ultricies leo pulvinar, in elementum enim viverra.
+            Sistem informasi ini digunakan untuk proses seleksi Calon Pengurus Badan Eksekutif Mahasiswa <br>
+            Universitas Pendidikan Indonesia Kampus Daerah di Cibiru yang terintegrasi dan menggunakan teknologi Decision Support System dengan Metode Analytical Hierarchy Process
         </p>
     </div>
 </div>

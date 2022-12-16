@@ -155,7 +155,7 @@
 
             <br>
             <div class="d-grid gap-2 col-6 mt-4 mx-auto">
-                <button class="btn btn-primary btn-submit" type="submit">Masuk</button>
+                <button class="btn btn-primary btn-submit" type="submit">Daftar</button>
             </div>
         </div>
         </form>        
