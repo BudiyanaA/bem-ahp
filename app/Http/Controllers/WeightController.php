@@ -17,7 +17,7 @@ class WeightController extends Controller
      */
     public function index()
     {
-        $data['weights'] = Weight::with(['alternative', 'administration', 'portfolio'])->get();
+        $data['weights'] = Weight::with(['alternative', 'administration', 'portfolio', 'alternative.user'])->get();
         return view('weight.index', $data);
     }
 
@@ -28,7 +28,7 @@ class WeightController extends Controller
      */
     public function create()
     {
-        $data['alternatives'] = Alternative::get()->pluck('name', 'id');
+        $data['alternatives'] = Alternative::with('user')->get()->pluck('user.name', 'id');
         $data['administrations'] = Administration::get()->pluck('name', 'id');
         $data['portfolios'] = Portfolio::get()->pluck('name', 'id');
         return view('weight.create', $data);
@@ -89,7 +89,7 @@ class WeightController extends Controller
      */
     public function edit($id)
     {
-        $data['alternatives'] = Alternative::get()->pluck('name', 'id');
+        $data['alternatives'] = Alternative::with('user')->get()->pluck('user.name', 'id');
         $data['administrations'] = Administration::get()->pluck('name', 'id');
         $data['portfolios'] = Portfolio::get()->pluck('name', 'id');
         $data['weight'] = Weight::find($id);

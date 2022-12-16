@@ -6,7 +6,7 @@
 	</div>
     <div class="form-group 	@if ($errors->has('name')) has-error @endif col-md-6 col-lg-6">
 		<label for="email2">Nama</label>
-		{{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nama']) }}
+		{{ Form::select('user_id', $users, null, ['class' => 'form-control', 'placeholder' => 'Pilih Nama', 'id' => 'users-option' ]) }}
 		@if ($errors->has('name')) <small class="form-text help-block" style="color:red">{{ $errors->first('name') }}</small> @endif
 	</div>
 </div>

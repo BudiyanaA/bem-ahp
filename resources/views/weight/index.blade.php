@@ -35,7 +35,7 @@ Nilai Bobot
                                     @foreach($weights as $weight)
                                         <tr>
                                             <td>{{ $loop->index + 1 }}</td>
-                                            <td>{{ $weight->alternative?->name }}</td>
+                                            <td>{{ $weight->alternative?->user?->name }}</td>
                                             <td>{{ $weight->administration?->name }}</td>
                                             <td>{{ $weight->knowledge }}</td>
                                             <td>{{ $weight->psikotest }}</td>

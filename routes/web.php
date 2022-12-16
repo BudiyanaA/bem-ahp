@@ -7,6 +7,7 @@ use App\Http\Controllers\AlternativeController;
 use App\Http\Controllers\CalculationController;
 use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\WeightController;
+use App\Http\Controllers\SelectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ use App\Http\Controllers\WeightController;
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('login', [AuthController::class, 'login'])->name('login');  
+Route::get('register', [AuthController::class, 'registerPage'])->name('register');
+Route::post('register', [AuthController::class, 'registerAction'])->name('register');  
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => 'auth'], function () {
@@ -34,7 +37,10 @@ Route::group(['middleware' => 'auth'], function () {
   Route::resource('kriteria', CriteriaController::class);
   Route::resource('bobot', WeightController::class);
 
-  Route::get('password/change', [AuthController::class, 'changePasswordPage'])->name('password.change');
-  Route::post('password/change', [AuthController::class, 'changePasswordAction'])->name('password.change');
   Route::get('profile', [AuthController::class, 'profile'])->name('profile');
+  Route::post('profile/change', [AuthController::class, 'changeProfile'])->name('profile.change');
+  Route::post('password/change', [AuthController::class, 'changePassword'])->name('password.change');
+  Route::get('seleksi', [SelectionController::class, 'index'])->name('selection');
+  Route::get('status', [SelectionController::class, 'result'])->name('selection.result');
+  Route::get('info', [SelectionController::class, 'info'])->name('selection.info');
 });

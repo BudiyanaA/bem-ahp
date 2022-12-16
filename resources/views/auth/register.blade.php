@@ -104,10 +104,10 @@
 <div class="container">
     <div class="card mt-3 pt-5 pb-5">
         <div class="card-body text-center pt-1 pb-5">
-        <div>Silakan Masuk untuk Memulai</div>
+        <div>Silakan Mendaftar Akun</div>
 
             <br>
-
+            
     @if (session('success'))
       <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
@@ -127,8 +127,14 @@
         </div>
     @endif
 
-        <form class="user" method="POST" action="{{ route('login') }}">
+        <form class="user" method="POST" action="{{ route('register') }}">
             @csrf
+            <div class="col-12 col-md-9 col-lg-6 mt-1 mx-auto label">
+                <label for="nim" class="form-label">Nama:</label>
+                <input type="name" class="form-control border-style" id="email" name="name" value="" required autofocus autocomplete="off">
+                <div class="valid-feedback"></div>
+            </div>
+
             <div class="col-12 col-md-9 col-lg-6 mt-1 mx-auto label">
                 <label for="nim" class="form-label">Email:</label>
                 <input type="email" class="form-control border-style" id="email" name="email" value="" required autofocus autocomplete="off">
@@ -141,6 +147,12 @@
                 <div class="valid-feedback"></div>
             </div>
 
+            <div class="col-12 col-md-9 col-lg-6 mt-3 mx-auto label">
+                <label for="password" class="form-label">Konfirmasi Password:</label>
+                <input type="password" class="form-control border-style" id="password" name="confirm_password" value="" required autocomplete="off">
+                <div class="valid-feedback"></div>
+            </div>
+
             <br>
             <div class="d-grid gap-2 col-6 mt-4 mx-auto">
                 <button class="btn btn-primary btn-submit" type="submit">Masuk</button>
@@ -148,7 +160,7 @@
         </div>
         </form>        
         <div class="d-grid gap-2 col-12 col-md-9 col-lg-6 mt-2 mx-auto">
-            <span>Belum punya akun ? <b><a href="{{ route('register') }}">Daftar</a></b></span>
+            <span>Sudah punya akun ? <b><a href="{{ route('login') }}">Masuk</a></b></span>
         </div>
     </div>
 </div>

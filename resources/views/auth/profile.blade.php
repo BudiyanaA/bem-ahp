@@ -39,56 +39,71 @@ Profile
 
                         <h6 class="heading-small text-muted mb-4">User Information</h6>
 
+                        <form class="user" method="POST" action="{{ route('profile.change') }}">
+                        @csrf
                         <div class="pl-lg-4">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="name">Nama</label>
-                                        <input type="text" id="name" class="form-control" name="name" placeholder="Name" value="{{ old('name', Auth::user()->name) }}" readonly>
+                                        <input type="text" id="name" class="form-control" name="name" placeholder="Name" value="{{ old('name', Auth::user()->name) }}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label" for="email">Email</label>
-                                        <input type="email" id="email" class="form-control" name="email" placeholder="example@example.com" value="{{ old('email', Auth::user()->email) }}" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="name">Input Administrasi</label>
-                                        <a target="_blank" href="https://bit.ly/Seleksi-Administrasi-BEM-UPI-Cibiru" class="btn btn-primary form-control">Isi Formulir</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="name">Input Portofolio</label>
-                                        <a target="_blank" href="https://bit.ly/Seleksi-Portofolio-BEM-UPI-Cibiru" class="btn btn-primary form-control">Isi Formulir</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="name">Tes Pengetahuan</label>
-                                        <a target="_blank" href="https://bit.ly/Tes-Pengetahuan-BEM-UPI-Cibiru" class="btn btn-primary form-control">Isi Formulir</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="name">Tes Psikotest</label>
-                                        <a target="_blank" href="https://bit.ly/Psikotest-BEM-UPI-Cibiru" class="btn btn-primary form-control">Isi Formulir</a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="name">Tes Wawancara</label>
-                                        <a target="_blank" href="https://bit.ly/Interview-Scheduling-BEM-UPI-Cibiru" class="btn btn-primary form-control">Isi Formulir</a>
+                                        <input type="email" id="email" class="form-control" name="email" placeholder="example@example.com" value="{{ old('email', Auth::user()->email) }}">
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Button -->
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+
+                        <h6 class="heading-small text-muted mb-4">User Password</h6>
+
+                        <form class="user" method="POST" action="{{ route('password.change') }}">
+                        @csrf
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="name">Password Lama</label>
+                                        <input type="password" id="name" class="form-control" name="current_password" placeholder="Password Lama" value="{{ old('current_password') }}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="email">Password Baru</label>
+                                        <input type="password" id="email" class="form-control" name="new_password" placeholder="Password Baru" value="{{ old('new_password') }}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="email">Konfirmasi Password Baru</label>
+                                        <input type="password" id="email" class="form-control" name="new_confirm_password" placeholder="Konfirmasi Password Baru" value="{{ old('new_confirm_password') }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Button -->
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
 
                 </div>
 

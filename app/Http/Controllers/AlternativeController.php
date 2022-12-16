@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Alternative;
+use App\Models\User;
 
 class AlternativeController extends Controller
 {
@@ -25,7 +26,8 @@ class AlternativeController extends Controller
      */
     public function create()
     {
-        return view('alternative.create');
+        $data['users'] = User::where('role', 'USER')->get()->pluck('name', 'id');
+        return view('alternative.create', $data);
     }
 
     /**
@@ -38,14 +40,14 @@ class AlternativeController extends Controller
     {
         $validated = $request->validate([
             'code' => 'required|unique:alternatives,code|max:255',
-            'name' => 'required',
+            'user_id' => 'required|unique:alternatives,user_id|exists:users,id',
         ]);
 
         try {
 
             Alternative::create([
                 'code' => $request->code,
-                'name' => $request->name,
+                'user_id' => $request->user_id,
             ]);
     
             return redirect(route('alternatif.index'))

@@ -15,7 +15,7 @@ class CalculationController extends Controller
     public function index()
     {
         $calculations = [];
-        $weights = Weight::with(['alternative', 'administration', 'portfolio'])->get();
+        $weights = Weight::with(['alternative', 'administration', 'portfolio', 'alternative.user'])->get();
         foreach($weights as $w) {
             $adm = $this->getAdministration($w->administration?->code);
             $knw = $this->getKnowledge($w->knowledge);
@@ -24,7 +24,7 @@ class CalculationController extends Controller
             $pto = $this->getPortfolio($w->portfolio?->code);
             $total = $adm + $knw + $psi + $int + $pto;
             array_push($calculations, [
-                'alternative' => $w->alternative?->name,
+                'alternative' => $w->alternative?->user?->name,
                 'administration' => $adm,
                 'knowledge' => $knw,
                 'psikotest' => $psi,

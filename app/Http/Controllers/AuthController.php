@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Rules\MatchOldPassword;
+use Illuminate\Support\Facades\Hash;
 use Auth;
 use Session;
 
@@ -33,6 +36,36 @@ class AuthController extends Controller
         return redirect("login")->withSuccess('Login details are not valid');
     }
 
+    public function registerPage()
+    {
+        return view('auth.register');
+    }
+
+    public function registerAction(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users',
+            'password' => 'required',
+            'confirm_password' => 'required|same:password',
+        ]);
+
+        try {
+
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+            ]);
+    
+            return redirect(route('login'))
+                ->withSuccess("Daftar berhasil");
+                
+        } catch(\Exception $e) {
+            return redirect()->back()->withError('Daftar gagal');
+        }
+    }
+
     public function logout() {
         Session::flush();
         Auth::logout();
@@ -43,6 +76,52 @@ class AuthController extends Controller
     public function profile()
     {
         return view('auth.profile');
+    }
+
+    public function changeProfile(Request $request)
+    {
+        $validated = $request->validate([
+            'email' => 'required|email|unique:users,id,' . Auth::id(),
+            'name' => 'required',
+        ]);
+
+        try {
+
+            $user = User::find(Auth::id());
+            $user->update([
+                'email' => $request->email,
+                'name' => $request->name,
+            ]);
+    
+            return redirect(route('profile'))
+                ->withSuccess("Data berhasil diubah");
+                
+        } catch(\Exception $e) {
+            return redirect()->back()->withError('Data gagal diubah');
+        }
+    }
+
+    public function changePassword(Request $request)
+    {
+        $validated = $request->validate([
+            'current_password' => ['required' , new MatchOldPassword],
+            'new_password' => 'required',
+            'new_confirm_password' => 'required|same:new_password',
+        ]);
+
+        try {
+
+            $user = User::find(Auth::id());
+            $user->update([
+                'password' => Hash::make($request->new_password),
+            ]);
+    
+            return redirect(route('profile'))
+                ->withSuccess("Password berhasil diubah");
+                
+        } catch(\Exception $e) {
+            return redirect()->back()->withError('Password gagal diubah');
+        }
     }
 
     /**

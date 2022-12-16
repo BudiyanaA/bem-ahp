@@ -32,7 +32,7 @@ Alternatif
                                         <tr>
                                             <td>{{ $loop->index + 1}}</td>
                                             <td>{{ $alt->code }}</td>
-                                            <td>{{ $alt->name }}</td>
+                                            <td>{{ $alt->user?->name }}</td>
                                             <td>
                                                 <a href="{{ route('alternatif.edit', $alt->id) }}" class="btn btn-success btn-circle">
                                                     <i class="fas fa-edit"></i>
