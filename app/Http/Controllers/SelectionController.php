@@ -48,15 +48,11 @@ class SelectionController extends Controller
 
     public function result()
     {
-        $alt = Alternative::where('user_id', Auth::id())->first();
+        $weight = Weight::with(['alternative', 'administration', 'portfolio'])
+            ->where('alternative_id', Auth::id())
+            ->first();
 
-        if ($alt) {
-            $weight = Weight::with(['alternative', 'administration', 'portfolio'])
-                ->where('alternative_id', $alt->id)
-                ->first();
-        }
-
-        if ($alt && isset($weight)) {
+        if ($weight) {
             $adm = $this->getAdministration($weight->administration?->code);
             $knw = $this->getKnowledge($weight->knowledge);
             $psi = $this->getPsikotest($weight->psikotest);
@@ -109,11 +105,11 @@ class SelectionController extends Controller
         if ($value >= 91 && $value <= 100) {
             return 1;
         } else if ($value >= 81 && $value <= 90) {
-            return 0.49;
+            return 0.55;
         } else if ($value >= 71 && $value <= 80) {
-            return 0.25;
+            return 0.27;
         } else {
-            return 0.18;
+            return 0.14;
         }
     }
 
@@ -121,11 +117,11 @@ class SelectionController extends Controller
         if ($value >= 87 && $value <= 100) {
             return 1;
         } else if ($value >= 73 && $value <= 86) {
-            return 0.52;
+            return 0.55;
         } else if ($value >= 69 && $value <= 72) {
             return 0.27;
         } else {
-            return 0.12;
+            return 0.14;
         }
     }
 
@@ -147,13 +143,13 @@ class SelectionController extends Controller
                 return 1;
                 break;
             case "B":
-                return 0.59;
+                return 0.55;
                 break;
             case "C":
-                return 0.34;
+                return 0.27;
                 break;
             case "D":
-                return 0.21;
+                return 0.14;
                 break;
             default:
                 return 0;

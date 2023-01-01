@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('interview');
             $table->timestamps();
 
-            $table->foreign('alternative_id')->references('id')->on('alternatives');
+            $table->foreign('alternative_id')->references('id')->on('users');
             $table->foreign('administration_id')->references('id')->on('administrations');
             $table->foreign('portfolio_id')->references('id')->on('portfolios');
         });

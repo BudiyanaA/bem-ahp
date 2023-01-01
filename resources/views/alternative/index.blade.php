@@ -22,8 +22,8 @@ Alternatif
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Kode</th>
                                             <th>Nama</th>
+                                            <th>Email</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -31,8 +31,8 @@ Alternatif
                                         @foreach($alternatives as $alt)
                                         <tr>
                                             <td>{{ $loop->index + 1}}</td>
-                                            <td>{{ $alt->code }}</td>
-                                            <td>{{ $alt->user?->name }}</td>
+                                            <td>{{ $alt->name }}</td>
+                                            <td>{{ $alt->email }}</td>
                                             <td>
                                                 <a href="{{ route('alternatif.edit', $alt->id) }}" class="btn btn-success btn-circle">
                                                     <i class="fas fa-edit"></i>

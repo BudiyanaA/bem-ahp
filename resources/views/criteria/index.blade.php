@@ -28,22 +28,22 @@ Kriteria
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td>C01</td>
+                                            <td>C02</td>
                                             <td>Pengetahuan</td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td>C01</td>
+                                            <td>C03</td>
                                             <td>Psikotest</td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
-                                            <td>C01</td>
+                                            <td>C04</td>
                                             <td>Interview</td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
-                                            <td>C01</td>
+                                            <td>C05</td>
                                             <td>Portofolio</td>
                                         </tr>
                                     </tbody>

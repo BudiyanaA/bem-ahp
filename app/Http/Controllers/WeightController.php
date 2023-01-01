@@ -7,6 +7,7 @@ use App\Models\Alternative;
 use App\Models\Administration;
 use App\Models\Portfolio;
 use App\Models\Weight;
+use App\Models\User;
 
 class WeightController extends Controller
 {
@@ -17,7 +18,7 @@ class WeightController extends Controller
      */
     public function index()
     {
-        $data['weights'] = Weight::with(['alternative', 'administration', 'portfolio', 'alternative.user'])->get();
+        $data['weights'] = Weight::with(['alternative', 'administration', 'portfolio'])->get();
         return view('weight.index', $data);
     }
 
@@ -28,7 +29,7 @@ class WeightController extends Controller
      */
     public function create()
     {
-        $data['alternatives'] = Alternative::with('user')->get()->pluck('user.name', 'id');
+        $data['alternatives'] = User::where('role', 'USER')->get()->pluck('name', 'id');
         $data['administrations'] = Administration::get()->pluck('name', 'id');
         $data['portfolios'] = Portfolio::get()->pluck('name', 'id');
         return view('weight.create', $data);
@@ -43,7 +44,7 @@ class WeightController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'alternative_id' => 'required|exists:alternatives,id',
+            'alternative_id' => 'required|exists:users,id',
             'administration_id' => 'required|exists:administrations,id',
             'portfolio_id' => 'required|exists:portfolios,id',
             'knowledge' => 'required',
@@ -89,7 +90,7 @@ class WeightController extends Controller
      */
     public function edit($id)
     {
-        $data['alternatives'] = Alternative::with('user')->get()->pluck('user.name', 'id');
+        $data['alternatives'] = User::where('role', 'USER')->get()->pluck('name', 'id');
         $data['administrations'] = Administration::get()->pluck('name', 'id');
         $data['portfolios'] = Portfolio::get()->pluck('name', 'id');
         $data['weight'] = Weight::find($id);
@@ -106,7 +107,7 @@ class WeightController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'alternative_id' => 'required|exists:alternatives,id',
+            'alternative_id' => 'required|exists:users,id',
             'administration_id' => 'required|exists:administrations,id',
             'portfolio_id' => 'required|exists:portfolios,id',
             'knowledge' => 'required',

@@ -15,7 +15,7 @@ class CalculationController extends Controller
     public function index()
     {
         $calculations = [];
-        $weights = Weight::with(['alternative', 'administration', 'portfolio', 'alternative.user'])->get();
+        $weights = Weight::with(['alternative', 'administration', 'portfolio'])->get();
         foreach($weights as $w) {
             $adm = $this->getAdministration($w->administration?->code);
             $knw = $this->getKnowledge($w->knowledge);
@@ -24,7 +24,7 @@ class CalculationController extends Controller
             $pto = $this->getPortfolio($w->portfolio?->code);
             $total = $adm + $knw + $psi + $int + $pto;
             array_push($calculations, [
-                'alternative' => $w->alternative?->user?->name,
+                'alternative' => $w->alternative?->name,
                 'administration' => $adm,
                 'knowledge' => $knw,
                 'psikotest' => $psi,
@@ -71,11 +71,11 @@ class CalculationController extends Controller
         if ($value >= 91 && $value <= 100) {
             return 1;
         } else if ($value >= 81 && $value <= 90) {
-            return 0.49;
+            return 0.55;
         } else if ($value >= 71 && $value <= 80) {
-            return 0.25;
+            return 0.27;
         } else {
-            return 0.18;
+            return 0.14;
         }
     }
 
@@ -83,11 +83,11 @@ class CalculationController extends Controller
         if ($value >= 87 && $value <= 100) {
             return 1;
         } else if ($value >= 73 && $value <= 86) {
-            return 0.52;
+            return 0.55;
         } else if ($value >= 69 && $value <= 72) {
             return 0.27;
         } else {
-            return 0.12;
+            return 0.14;
         }
     }
 
@@ -109,13 +109,13 @@ class CalculationController extends Controller
                 return 1;
                 break;
             case "B":
-                return 0.59;
+                return 0.55;
                 break;
             case "C":
-                return 0.34;
+                return 0.27;
                 break;
             case "D":
-                return 0.21;
+                return 0.14;
                 break;
             default:
                 return 0;

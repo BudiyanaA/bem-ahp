@@ -20,7 +20,7 @@ class Weight extends Model
 
     public function alternative()
     {
-        return $this->belongsTo(Alternative::class);
+        return $this->belongsTo(User::class);
     }
 
     public function administration()

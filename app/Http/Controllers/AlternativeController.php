@@ -15,7 +15,7 @@ class AlternativeController extends Controller
      */
     public function index()
     {
-        $data['alternatives'] = Alternative::all();
+        $data['alternatives'] = User::where('role', 'USER')->get();
         return view('alternative.index', $data);
     }
 
@@ -26,8 +26,7 @@ class AlternativeController extends Controller
      */
     public function create()
     {
-        $data['users'] = User::where('role', 'USER')->get()->pluck('name', 'id');
-        return view('alternative.create', $data);
+        return view('alternative.create');
     }
 
     /**
@@ -39,15 +38,16 @@ class AlternativeController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'code' => 'required|unique:alternatives,code|max:255',
-            'user_id' => 'required|unique:alternatives,user_id|exists:users,id',
+            'email' => 'required|unique:users,email|email',
+            'name' => 'required|max:255',
         ]);
 
         try {
 
-            Alternative::create([
-                'code' => $request->code,
-                'user_id' => $request->user_id,
+            User::create([
+                'email' => $request->email,
+                'name' => $request->name,
+                'password' => bcrypt("password"),
             ]);
     
             return redirect(route('alternatif.index'))
@@ -77,7 +77,7 @@ class AlternativeController extends Controller
      */
     public function edit($id)
     {
-        $data['alternative'] = Alternative::find($id);
+        $data['alternative'] = User::find($id);
         return view('alternative.edit', $data);
     }
 
@@ -91,15 +91,15 @@ class AlternativeController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'code' => 'required|max:255|unique:alternatives,code,' . $id,
-            'name' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'name' => 'required|max:255',
         ]);
 
         try {
 
-            $alternative = Alternative::find($id);
+            $alternative = User::find($id);
             $alternative->update([
-                'code' => $request->code,
+                'email' => $request->email,
                 'name' => $request->name,
             ]);
     
@@ -120,7 +120,7 @@ class AlternativeController extends Controller
     public function destroy($id)
     {
         try {
-            $alternative = Alternative::find($id);
+            $alternative = User::find($id);
             $alternative->delete();
             return 'success';
 
