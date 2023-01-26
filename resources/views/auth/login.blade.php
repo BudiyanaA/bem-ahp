@@ -20,7 +20,7 @@
     <!-- Custom styles for this template-->
     <link href="{{ url('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
-    <link rel="icon" href="{{ url('img/favicon.ico') }}" type="image/x-icon"/>
+    <link rel="icon" href="{{ url('img/unigen.ico') }}" type="image/x-icon"/>
 
 </head>
 

@@ -33,7 +33,7 @@ class SelectionController extends Controller
                 "link" => "https://bit.ly/Seleksi-Portofolio-BEM-UPI-Cibiru"
             ],
             [
-                "image" => "button_informasi.png",
+                "image" => "button_informasinew.png",
                 "link" => "/info"
             ],
         ];

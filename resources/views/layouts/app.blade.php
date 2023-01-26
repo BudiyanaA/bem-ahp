@@ -22,7 +22,7 @@
     <!-- Custom styles for this page -->
     <link href="{{ url('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
-    <link rel="icon" href="{{ url('img/favicon.ico') }}" type="image/x-icon"/>
+    <link rel="icon" href="{{ url('img/unigen.png') }}" type="image/x-icon"/>
 </head>
 
 <body id="page-top">

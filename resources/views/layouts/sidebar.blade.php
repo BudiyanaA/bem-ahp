@@ -3,7 +3,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-start" href="index.html">  
-                <img class="img-fluid rounded-circle" src="{{ url('img/logo.png') }}" width="50">
+                <img class="img-fluid rounded-circle" src="{{ url('img/unigen.png') }}" width="50">
                 <div class="sidebar-brand-text ml-1 text-left">REKRUTMEN BEM UPI</div>
             </a>
 

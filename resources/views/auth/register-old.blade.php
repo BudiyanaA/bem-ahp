@@ -56,7 +56,7 @@
     <div class="container mt-3 pt-5 pb-1">
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 text-center">
-                <img src="{{ url('img/logo.png') }}" alt="Logo" width="82" height="82">
+                <img src="{{ url('img/unigen.png') }}" alt="Logo" width="82" height="82">
             </div>
             <div class="col-12 col-md-12 col-lg-12 mt-3 mt-md-0">
                 <div class="opensans-extrabold text-center" style="color:#106466">
